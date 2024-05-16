@@ -2,7 +2,7 @@
 library(openxlsx)
 
 # Leer los datos desde el archivo Excel
-datos <- read.xlsx("Data_S.xlsx", sheet = 2)
+datos <- read.xlsx("Data_S.xlsx", sheet = 1)
 
 # Borramos la primera columna que tiene ID y la columna de la edad
 data <- datos[-2]
