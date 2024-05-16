@@ -1,10 +1,11 @@
+
 library(openxlsx)
 
 # Leer los datos desde el archivo Excel
-datos <- read.xlsx("Microdatos_2022_061_ESU.xlsx", sheet = 1)
+datos <- read.xlsx("Data_S.xlsx", sheet = 2)
 
 # Borramos la primera columna que tiene ID y la columna de la edad
-data <- datos[c(-1, -11)]
+data <- datos[-2]
 boxplot(data)
 
 summary(data)
@@ -12,8 +13,6 @@ summary(data)
 num_na <- colSums(is.na(data))
 num_na
 
-# Imprimir el número de valores faltantes por columna
-print(num_na)
 # Definidata()# Definir una función para calcular la moda
 getmode <- function(v) {
   uniqv <- unique(v)
@@ -50,9 +49,4 @@ outliers <- boxplot(data, plot = FALSE)$out
 
 # Guardar los datos imputados en un nuevo archivo Excel
 write.xlsx(data, "datos_imputados_y_limpios.xlsx")
-
-
-
-
-
 
